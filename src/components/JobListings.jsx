@@ -1,9 +1,13 @@
+import { useEffect, useState } from 'react';
 import JobListing from './JobListing'
 
-const JobListings = ({isHome = false}) => {
-  const [jobs, setJobs] = useState([]) //initailized state to hold fetch data from db
-  let fetching //No end point yet but initialized a variable to represent data fetch
-  //check if jobs has data if not return an empty array
+const JobListings = () => {
+  const [jobs, setJobs] = useState(null) //initailized state to hold fetch data from db
+  useEffect(() => {
+    fetch('http://localhost:3000/jobs')
+    .then(res => res.json())
+    .then(data => setJobs(data))
+  }, [])
   const jobListings = jobs ? jobs : [];
   return (
     <section className="bg-blue-50 px-4 py-10">
