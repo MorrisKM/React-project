@@ -1,13 +1,14 @@
-import JobPage from "./pages/JobPage"
-import JobsPage from "./pages/JobsPage"
+
 import Navbar from "./Components/Navbar"
+import Homepage from "./Pages/Homepage"
+
 
 function App() {
 
   return (
     <>
     <Navbar/>
-    <JobsPage />
+    <Homepage/>
     </>
   )
 }
