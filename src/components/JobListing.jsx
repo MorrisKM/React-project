@@ -3,6 +3,17 @@ import { useState } from 'react';
 import {FaMapMarker} from 'react-icons/fa'
 import { Link } from "react-router";
 
+const cashFormatter = (cash) => {
+   const formatter = new Intl.NumberFormat('en-KE', {
+    style: 'currency',
+    currency: 'KES',
+    maximumFractionDigits: 0,
+    minimumFractionDigits: 0
+  })
+  return formatter.format(cash)
+}
+export {cashFormatter}
+
 const JobListing = ({job}) => {
   //show full or less description
   const [showFull, setShowFull] = useState(false)
@@ -13,6 +24,7 @@ const JobListing = ({job}) => {
   }
   //need to receive job as a prop from a joblisting map.
   //organised the file in a manner that is ready for data.
+ 
 
   return (
     <div className="bg-white rounded-xl shadow-md relative">
@@ -26,7 +38,7 @@ const JobListing = ({job}) => {
 
         <button onClick={handleClick} className="text-sky-500 mb-5 hover:text-sky-600">{showFull ? 'Less' : 'More'}</button>
 
-        <h3 className="text-indigo-500 mb-2">{job.salary} / Month</h3>
+        <h3 className="text-indigo-500 mb-2">{cashFormatter(job.salary)} / Month</h3>
 
         <div className="border border-gray-100 mb-5"></div>
 

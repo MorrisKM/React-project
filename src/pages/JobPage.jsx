@@ -2,6 +2,7 @@ import { useParams, useLoaderData, useNavigate, Link} from 'react-router';
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
 import { toast } from 'sonner';
 import { deleteJob } from '../hooks/useFetch';
+import { cashFormatter } from '../components/JobListing';
 
 
 
@@ -70,7 +71,7 @@ const JobPage = () => {
 
                 <h3 className="text-indigo-800 text-lg font-bold mb-2">Salary</h3>
 
-                <p className="mb-4">{job.salary}/ Year</p>
+                <p className="mb-4">{cashFormatter(job.salary)}/ Month</p>
               </div>
             </main>
 

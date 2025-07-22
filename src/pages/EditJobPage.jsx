@@ -83,8 +83,7 @@ console.log (jobAdded)
 
             <div className="mb-4">
               <label className="block text-gray-700 font-bold mb-2"
-                >Job Listing Name</label
-              >
+              >Job Listing Name</label>
               <input
                 type="text"
                 id="title"
@@ -117,26 +116,14 @@ console.log (jobAdded)
               <label htmlFor="type" className="block text-gray-700 font-bold mb-2"
                 >Salary</label
               >
-              <select
+              <input
                 id="salary"
                 name="salary"
                 value={jobAdded.salary}
                 onChange={handleChange}
                 className="border rounded w-full py-2 px-3"
                 required
-              >
-                <option value="Under $50K">Under $50K</option>
-                <option value="$50K - 60K">$50K - $60K</option>
-                <option value="$60K - 70K">$60K - $70K</option>
-                <option value="$70K - 80K">$70K - $80K</option>
-                <option value="$80K - 90K">$80K - $90K</option>
-                <option value="$90K - 100K">$90K - $100K</option>
-                <option value="$100K - 125K">$100K - $125K</option>
-                <option value="$125K - 150K">$125K - $150K</option>
-                <option value="$150K - 175K">$150K - $175K</option>
-                <option value="$175K - 200K">$175K - $200K</option>
-                <option value="Over $200K">Over $200K</option>
-              </select>
+              />
             </div>
 
             <div className='mb-4'>
