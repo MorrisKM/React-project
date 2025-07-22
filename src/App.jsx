@@ -1,12 +1,13 @@
-import AddJobPage from "./pages/AddJobPage"
-import EditJobPage from "./pages/EditJobPage"
-import JobPage from "./pages/JobPage"
+import Navbar from "./Components/Navbar"
+import Homepage from "./Pages/Homepage"
+
 
 function App() {
 
   return (
     <>
-    <EditJobPage/>
+    <Navbar/>
+    <Homepage/>
     </>
   )
 }
