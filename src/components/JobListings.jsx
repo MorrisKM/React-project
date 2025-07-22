@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import JobListing from './JobListing'
 
-const JobListings = () => {
+const JobListings = ({isHome}) => {
   const [jobs, setJobs] = useState(null) //initailized state to hold fetch data from db
   useEffect(() => {
     fetch('http://localhost:3000/jobs')
     .then(res => res.json())
     .then(data => setJobs(data))
   }, [])
-  const jobListings = jobs ? jobs : [];
+  const jobListings = jobs ? (isHome ? jobs.slice(0, 3) : jobs) : [];
   return (
     <section className="bg-blue-50 px-4 py-10">
         <div className="container-xl lg:container m-auto">

@@ -1,29 +1,17 @@
-import {  useNavigate } from 'react-router';
+import { useParams, useLoaderData, useNavigate } from 'react-router';
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
 import { Link } from 'react-router';
 import { toast } from 'sonner';
 import { useEffect, useState } from 'react';
 
 
-const JobPage = () => {
-  const navigate = useNavigate()
 
-let job = {
-    id: 1,
-      title: "Senior React Developer",
-      type: "Full-Time",
-      description: "We are seeking a talented Front-End Developer to join our team in Boston, MA. The ideal candidate will have strong skills in HTML, CSS, and JavaScript, with experience working with modern JavaScript frameworks such as React or Angular.",
-      location: "Boston, MA",
-      salary: "$70K - $80K",
-      company: {
-        name: "NewTek Solutions",
-        description: "NewTek Solutions is a leading technology company specializing in web development and digital solutions. We pride ourselves on delivering high-quality products and services to our clients while fostering a collaborative and innovative work environment.",
-        contactEmail: "contact@teksolutions.com",
-        contactPhone: "555-555-5555"}
-}
+const JobPage = () => {
+  const navigate = useNavigate();
+  const {id} = useParams();
+  const job = useLoaderData();
 
   
-
   return (
     <>
       <section>
@@ -116,4 +104,10 @@ let job = {
     </>
   )
 }
-export default JobPage
+
+const jobLoader = async({params}) => {
+  const res = await fetch(`http://localhost:3000/jobs/${params.id}`);
+  const data = await res.json();
+  return data
+}
+export {JobPage as default, jobLoader}

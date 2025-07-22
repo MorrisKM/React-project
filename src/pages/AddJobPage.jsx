@@ -224,5 +224,4 @@ const AddJobPage = () => {
     </section>
   )
 }
-
 export default AddJobPage
