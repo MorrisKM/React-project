@@ -1,4 +1,3 @@
-import React from 'react'
 import Navbar from '../components/Navbar'
 import { Outlet } from 'react-router'
 import { Toaster } from 'sonner'
@@ -8,7 +7,7 @@ const MainLayout = () => {
     <>
       <Navbar />
       <Outlet />
-      <Toaster />
+      <Toaster richColors />
     </>
   )
 }

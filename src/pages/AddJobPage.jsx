@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { toast } from 'sonner';
 import { useNavigate } from "react-router"
+import { addJob } from "../hooks/useFetch";
 
 const AddJobPage = () => {
   const navigate = useNavigate()
@@ -40,10 +41,10 @@ const AddJobPage = () => {
         contactPhone: jobAdded.contactPhone
       }
     }
-    console.log(newJobObj)
-
+    setTimeout(() => {
+      addJob(newJobObj)
+    }, 500)
     toast.success('job added successfully')
-
     return navigate('/jobs')
   }
 

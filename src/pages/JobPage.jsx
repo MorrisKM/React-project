@@ -1,15 +1,30 @@
-import { useParams, useLoaderData, useNavigate } from 'react-router';
+import { useParams, useLoaderData, useNavigate, Link} from 'react-router';
 import { FaArrowLeft, FaMapMarker } from 'react-icons/fa';
-import { Link } from 'react-router';
 import { toast } from 'sonner';
-import { useEffect, useState } from 'react';
+import { deleteJob } from '../hooks/useFetch';
 
 
 
+//default fn
 const JobPage = () => {
   const navigate = useNavigate();
   const {id} = useParams();
   const job = useLoaderData();
+
+  const handleDelete = async (jobId) => {
+    toast(`Delete: ${job.title}`, {
+      action: {
+        label: 'Yes',
+        onClick: () => {
+          toast.success('Job deleted successfully')
+          setTimeout(() => {
+            deleteJob(jobId);
+            navigate('/jobs')
+          }, 500)
+        }
+      }
+    })
+  };
 
   
   return (
@@ -93,6 +108,7 @@ const JobPage = () => {
                   >Edit Job</Link>
                 <button 
                   className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                  onClick={() => handleDelete(job.id)}
                 >
                   Delete Job
                 </button>
@@ -105,9 +121,4 @@ const JobPage = () => {
   )
 }
 
-const jobLoader = async({params}) => {
-  const res = await fetch(`http://localhost:3000/jobs/${params.id}`);
-  const data = await res.json();
-  return data
-}
-export {JobPage as default, jobLoader}
+export {JobPage as default}

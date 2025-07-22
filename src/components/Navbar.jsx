@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { NavLink, Link } from "react-router";
 
 const Navbar = () => {
   const linkClass = ({ isActive }) =>
@@ -13,7 +13,7 @@ const Navbar = () => {
           {/* Logo Section */}
           <div className="flex-shrink-0 flex items-center">
             <div className="text-white font-extrabold text-2xl tracking-wide select-none cursor-pointer">
-              JobFinder
+              <Link to={'/'}>JobFinder</Link>
             </div>
           </div>
 

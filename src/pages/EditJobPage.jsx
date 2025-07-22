@@ -2,6 +2,7 @@ import { useParams, useLoaderData } from "react-router";
 import { useState } from "react"
 import { toast } from 'sonner';
 import { useNavigate } from "react-router"
+import { updateJob } from "../hooks/useFetch";
 
 const EditJobPage = () => {
   const navigate = useNavigate()
@@ -31,6 +32,7 @@ console.log (jobAdded)
     e.preventDefault()
 
     const newJobObj = {
+      id: job.id,
       title: jobAdded.title,
       type: jobAdded.type,
       location: jobAdded.location,
@@ -43,11 +45,12 @@ console.log (jobAdded)
         contactPhone: jobAdded.contactPhone
       }
     }
-    console.log(newJobObj)
-
-    toast.success('job added successfully')
-
-    return navigate('/jobs')
+    
+    setTimeout(() => {
+      updateJob(newJobObj)
+    }, 500)
+    toast.success('job updated successfully')
+    return navigate(-1)
   }
 
   return (

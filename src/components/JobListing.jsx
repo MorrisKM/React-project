@@ -6,7 +6,7 @@ import { Link } from "react-router";
 const JobListing = ({job}) => {
   //show full or less description
   const [showFull, setShowFull] = useState(false)
-  let handleClick = () => setShowFull(state => !state)
+  let handleClick = () => setShowFull((prevstate) => !prevstate)
   let description = job.description
   if (!showFull) {
     description = description.substring(0, 90) + '...'
