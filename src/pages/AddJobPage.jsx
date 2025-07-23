@@ -41,9 +41,7 @@ const AddJobPage = () => {
         contactPhone: jobAdded.contactPhone
       }
     }
-    setTimeout(() => {
-      addJob(newJobObj)
-    }, 500)
+    addJob(newJobObj)
     toast.success('job added successfully')
     return navigate('/jobs')
   }

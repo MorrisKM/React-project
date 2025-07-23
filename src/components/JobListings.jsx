@@ -3,7 +3,7 @@ import useFetch from '../hooks/useFetch';
 import { ClipLoader } from 'react-spinners';
 
 const JobListings = ({isHome = false}) => {
-  const {data: jobs, isPending, error} = useFetch('http://localhost:3000/jobs')
+  const {data: jobs, isPending, error} = useFetch('https://pc2-db.onrender.com/jobs')
   //knows if the call is from home or the jobs page
   const jobListings = jobs ? (isHome ? jobs.slice(0, 3) : jobs) : [];
 

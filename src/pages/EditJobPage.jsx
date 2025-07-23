@@ -46,9 +46,8 @@ console.log (jobAdded)
       }
     }
     
-    setTimeout(() => {
-      updateJob(newJobObj)
-    }, 500)
+    
+    updateJob(newJobObj)
     toast.success('job updated successfully')
     return navigate(-1)
   }

@@ -18,10 +18,8 @@ const JobPage = () => {
         label: 'Yes',
         onClick: () => {
           toast.success('Job deleted successfully')
-          setTimeout(() => {
-            deleteJob(jobId);
-            navigate('/jobs')
-          }, 500)
+          deleteJob(jobId);
+          navigate('/jobs')
         }
       }
     })
