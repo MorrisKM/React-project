@@ -84,7 +84,7 @@ const AddJobPage = () => {
                 name="title"
                 onChange={handleChange}
                 className="border rounded w-full py-2 px-3 mb-2"
-                placeholder="eg. Beautiful Apartment In Miami"
+                placeholder="eg. Front-end Engineer"
                 required
               />
             </div>
