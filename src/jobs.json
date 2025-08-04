@@ -97,6 +97,20 @@
         "contactEmail": "hr@kenyatechinnovators.co.ke",
         "contactPhone": "+254-700-666666"
       }
+    },
+    {
+      "id": "8",
+      "title": "Blog Post Manager",
+      "type": "Internship",
+      "location": "Kitale,Trans Nzoia",
+      "description": "I want someone who is new to the industry",
+      "salary": "80000",
+      "company": {
+        "name": "NillTech Company",
+        "description": "We deal with manufacturing electronics ",
+        "contactEmail": "Nilltech@email.com",
+        "contactPhone": ""
+      }
     }
   ]
 }
